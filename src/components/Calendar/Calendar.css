@@ -1,0 +1,20 @@
+.calendar {
+    text-align: center;
+  }
+  
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+  }
+  
+  .day {
+    border: 2px solid #ccc;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .day-name {
+    font-weight: bold;
+  }
+  
