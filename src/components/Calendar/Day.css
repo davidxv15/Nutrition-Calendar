@@ -1,0 +1,42 @@
+/* .day {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+  flex-grow: 1;
+}
+
+x.day-expanded {
+  position: fixed;
+  font-size: 2px;
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.4); 
+  background-color: white;
+  padding: 10px;
+  border: 1px solid #ccc;
+  z-index: 2; 
+  overflow: auto;
+}
+
+.day-content {
+  position: relative;
+}
+
+.day-content ul {
+  padding: 0;
+  margin: 0;
+}
+
+.day-content li {
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+.day-content button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+} */

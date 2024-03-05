@@ -1,20 +1,88 @@
 .calendar {
-    text-align: center;
-  }
-  
-  .calendar-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
-  }
-  
-  .day {
-    border: 2px solid #ccc;
-    padding: 10px;
-    cursor: pointer;
-  }
-  
-  .day-name {
-    font-weight: bold;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  border: 1px solid #ccc;
+  margin: auto;
+  background-color: cornflowerblue;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  /* background-color: #f0f0f0; */
+  background-color: burlywood;
+}
+
+.calendar-weekdays {
+  display: flex;
+  width: 100%;
+  padding: 5px;
+}
+
+.weekday {
+  flex: 1;
+  text-align: center;
+}
+
+.calendar-body {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  width: 100%;
+  border-top: 1px solid #ccc;
+}
+
+.day {
+  /* flex: 1; */
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+.day-expanded {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  font-size: 15px;
+  height: 20vh;
+  width: 33%;
+  transform: translate(-50%, -50%) scale(1.6); /* expanded day size */
+  background-color: white;
+  padding: 10px;
+  border: 1px solid #ccc;
+  z-index: 3; /* higher z-index? */
+  overflow: auto;
+}
+
+.day-content {
+  position: relative;
+}
+.day-content ul {
+  padding: 0;
+  margin: 0;
+}
+.day-content li {
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+.day-content button {
+  position: absolute;
+  top: auto;
+  right: auto;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: blue;
+  background-color: red;
+  box-shadow: 0 2px 4px darkslategray;
+  translate: ;
+}
