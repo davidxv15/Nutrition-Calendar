@@ -72,11 +72,16 @@
 }
 
 .day-content button {
+  font-size: 1em;
   position: absolute;
   top: auto;
   right: auto;
-  height: 15px;
-  width: 15px;
+  height: 13px;
+  width: 13px;
+  margin-left: 10px;
+  padding-right: 1px;
+  text-align: center;
+  vertical-align:middle;  
   border-radius: 50%;
   background-color: transparent;
   border: none;
@@ -84,5 +89,18 @@
   color: blue;
   background-color: red;
   box-shadow: 0 2px 4px darkslategray;
-  translate: ;
+  /* transform:translateX(0.2rem); */
+  transform:translateY(0.15rem);
+  line-height: 0.1em;
+}
+
+/* .x-button {
+  text-align: center;
+  color: teal;
+  background-color: blueviolet;
+} */
+
+.close-button {
+  background-color: white;
+  color: darkred;
 }

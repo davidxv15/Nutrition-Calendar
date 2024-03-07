@@ -3,7 +3,6 @@ import moment from "moment";
 import Day from "./Day";
 import FoodInput from "../FoodInput/FoodInput";
 import { v4 as uuidv4 } from "uuid";
-
 import "./Calendar.css";
 
 const Calendar = () => {
@@ -45,6 +44,8 @@ const Calendar = () => {
           isExpanded={expandedDay && expandedDay.isSame(currentDate, "day")} // Pass isExpanded prop
           foodData={foodData[currentDate.format("YYYY-MM-DD")] || []} // Pass foodData for the day
           setFoodData={setFoodData}
+          setExpandedDay={setExpandedDay} // passing as a prop
+          selectedDate={selectedDate}
         />
       );
       currentDate.add(1, "day");
@@ -63,8 +64,8 @@ const Calendar = () => {
 
   const handleDayClick = (day) => {
     if (expandedDay && expandedDay.isSame(day, "day")) {
-      // If the clicked day is already expanded, collapse it
-      setExpandedDay(null);
+      // If the clicked day is already expanded, do nothing
+      return;
     } else {
       // Otherwise, expand the clicked day
       setExpandedDay(day);

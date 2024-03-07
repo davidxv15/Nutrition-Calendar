@@ -20,12 +20,14 @@ const FoodInput = ({ onAddFood }) => {
         placeholder="Food Name"
         value={foodName}
         onChange={(e) => setFoodName(e.target.value)}
+        required
       />
       <input
         type="number"
         placeholder="Calories"
         value={calories}
         onChange={(e) => setCalories(e.target.value)}
+        required
       />
       <button type="submit">Add Food</button>
     </form>

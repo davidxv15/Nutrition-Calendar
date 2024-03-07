@@ -40,3 +40,8 @@ x.day-expanded {
   border: none;
   cursor: pointer;
 } */
+
+.close-button {
+  background-color: white;
+  color: darkred;
+}

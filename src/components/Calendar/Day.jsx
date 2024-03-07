@@ -9,6 +9,8 @@ const Day = ({
   isExpanded,
   foodData,
   setFoodData,
+  setExpandedDay,
+  selectedDate,
 }) => {
   const isCurrentMonth = date.month() === currentMonth.month();
   const isToday = date.isSame(new Date(), "day");
@@ -29,33 +31,45 @@ const Day = ({
     });
   };
 
-  // console.log("foodData:", foodData);
-  // console.log("Is foodData an array?", Array.isArray(foodData));
-
-  // foodData.forEach((item, index) => {
-  //   console.log(`Food item ${index + 1}:`, item);
-  //   console.log(`Name: ${item.foodName}, Calories: ${item.calories}`);
-  // });
+  const totalCalories = foodData.reduce(
+    (total, item) => total + parseInt(item.calories, 10),
+    0
+  );
 
   return (
     <div
-      className={`day ${isCurrentMonth ? "" : "other-month"} ${
-        isToday ? "today" : ""
-      }`}
+      className={`day ${
+        date.month() === currentMonth.month() ? "" : "other-month"
+      } ${date.isSame(new Date(), "day") ? "today" : ""}`}
       onClick={handleDayClick}
     >
       {date.format("D")}
       {isExpanded && (
         <div className="day-expanded">
+          <div className="selected-date">
+            {selectedDate && selectedDate.format("MM - DD - YYYY")}
+          </div>
           <div className="day-content">
-            {/* DISPLAY: FOOD INPUT, THEN IT'S CALORIES */}
+            {/* DISPLAY: Date, Food Input, THEN IT'S CALORIES  and  total */}
+            <div className="total-calories">Total: {totalCalories}</div>
 
+            <button
+              className="close-button"
+              onClick={() => setExpandedDay(null)}
+            >
+              x
+            </button>
             <ol>
               {foodData.map((item) => (
                 <li key={item.uuid}>
                   {/* <span>{index + 1}. </span> */}
                   {item.foodName} - {item.calories} Cal{" "}
-                  <button onClick={() => handleDeleteFood(item.uuid)}>x</button>
+                  <button
+                    className="x-button"
+                    onClick={() => handleDeleteFood(item.uuid)}
+                  >
+                    x
+                  </button>
                 </li>
               ))}
             </ol>
