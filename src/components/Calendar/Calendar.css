@@ -49,13 +49,12 @@
   top: 50%;
   left: 50%;
   font-size: 15px;
-  height: 20vh;
+  height: 33vh;
   width: 33%;
-  transform: translate(-50%, -50%) scale(1.6); /* expanded day size */
-  background-color: white;
-  padding: 10px;
+  transform: translate(-50%, -50%) scale(1.6);
   border: 1px solid #ccc;
-  z-index: 3; /* higher z-index? */
+  z-index: 3;
+  opacity: 0.97;
   overflow: auto;
 }
 
@@ -72,35 +71,35 @@
 }
 
 .day-content button {
-  font-size: 1em;
+  font-size: 0.7em;
   position: absolute;
   top: auto;
   right: auto;
-  height: 13px;
-  width: 13px;
-  margin-left: 10px;
-  padding-right: 1px;
-  text-align: center;
-  vertical-align:middle;  
+  height: 1em;
+  width: 1em;
+  margin-left: 1em;
+  padding-right: 0.2em;
+  text-align: justify;
+  vertical-align: middle;
   border-radius: 50%;
   background-color: transparent;
   border: none;
   cursor: pointer;
-  color: blue;
-  background-color: red;
+  /* color: rgb(155, 30, 244);
+  background-color: rgb(253, 106, 0); */
   box-shadow: 0 2px 4px darkslategray;
   /* transform:translateX(0.2rem); */
-  transform:translateY(0.15rem);
+  /* transform:translateY(0.15rem); */
   line-height: 0.1em;
 }
 
-/* .x-button {
+.day-content .x-button {
   text-align: center;
   color: teal;
-  background-color: blueviolet;
-} */
+  background-color: rgb(155, 48, 255);
+}
 
-.close-button {
+.day-content .close-button {
   background-color: white;
-  color: darkred;
+  color: peru;
 }

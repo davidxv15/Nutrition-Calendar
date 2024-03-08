@@ -57,7 +57,7 @@ const Day = ({
               className="close-button"
               onClick={() => setExpandedDay(null)}
             >
-              x
+              Close
             </button>
             <ol>
               {foodData.map((item) => (
