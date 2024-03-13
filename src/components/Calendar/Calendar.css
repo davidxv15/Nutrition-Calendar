@@ -2,8 +2,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 300px;
-  border: 1px solid #ccc;
+  width: 92%;
+  height: 25em;
+  border: 2px solid #ed6b6b;
   margin: auto;
   background-color: cornflowerblue;
 }
@@ -12,7 +13,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: 60%;
   padding: 10px;
   /* background-color: #f0f0f0; */
   background-color: burlywood;
@@ -38,13 +39,14 @@
 }
 
 .day {
-  /* flex: 1; */
+ 
   border: 1px solid #ccc;
   padding: 10px;
   text-align: center;
 }
 
 .day-expanded {
+  background-color: rgb(255, 255, 255);
   position: fixed;
   top: 50%;
   left: 50%;
@@ -54,20 +56,25 @@
   transform: translate(-50%, -50%) scale(1.6);
   border: 1px solid #ccc;
   z-index: 3;
-  opacity: 0.97;
+  opacity: 0.9;
   overflow: auto;
 }
 
 .day-content {
   position: relative;
 }
-.day-content ul {
+.day-content ol {
   padding: 0;
   margin: 0;
 }
 .day-content li {
   list-style: none;
   margin-bottom: 10px;
+}
+
+.calorie-integer {
+  color: purple;
+  transform: translateX(3em);
 }
 
 .day-content button {
@@ -95,11 +102,24 @@
 
 .day-content .x-button {
   text-align: center;
-  color: rgb(3, 239, 216);
-  background-color: rgb(155, 48, 255);
+  color: rgb(0, 0, 0);
+  box-shadow: none;
+  right: 1em;
+  line-height: 2em;
 }
 
 .day-content .close-button {
-  background-color: white;
-  color: rgb(234, 124, 14);
+  color: rgb(78, 69, 61);
+  top: -2em;
+  right: .4em;
+  box-shadow: none;
+}
+
+.day-content .total-calories {
+  color: red;
+  bottom: 1em;
+}
+
+.total-calories {
+  color: coral;
 }

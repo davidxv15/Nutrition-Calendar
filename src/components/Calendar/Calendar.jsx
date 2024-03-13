@@ -10,6 +10,7 @@ const Calendar = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [foodData, setFoodData] = useState({});
   const [expandedDay, setExpandedDay] = useState(null);
+  const [totalCaloriesData, setTotalCaloriesData] = useState({});
 
   const handleAddFood = (food) => {
     if (selectedDate) {
@@ -25,7 +26,7 @@ const Calendar = () => {
   };
 
   const renderCalendar = () => {
-    // const weekdays = moment.weekdaysShort(); // Makes days abbreviated
+    // const weekdays = moment.weekdaysShort(); // Makes days abbreviated?
     const monthStart = currentMonth.clone().startOf("month");
     const monthEnd = currentMonth.clone().endOf("month");
     const startDate = monthStart.clone().startOf("week");
@@ -40,11 +41,11 @@ const Calendar = () => {
           key={currentDate.format("YYYY-MM-DD")}
           date={currentDate.clone()}
           currentMonth={currentMonth}
-          onClick={handleDayClick} // Pass onClick handler to Day component
-          isExpanded={expandedDay && expandedDay.isSame(currentDate, "day")} // Pass isExpanded prop
-          foodData={foodData[currentDate.format("YYYY-MM-DD")] || []} // Pass foodData for the day
+          onClick={handleDayClick} // will pass onClick handler to day.jsx component
+          isExpanded={expandedDay && expandedDay.isSame(currentDate, "day")} // Pass 'isExpanded' prop
+          foodData={foodData[currentDate.format("YYYY-MM-DD")] || []} // Pass foodData for the day i clicked
           setFoodData={setFoodData}
-          setExpandedDay={setExpandedDay} // passing as a prop
+          setExpandedDay={setExpandedDay}
           selectedDate={selectedDate}
         />
       );
@@ -67,14 +68,14 @@ const Calendar = () => {
       // If the clicked day is already expanded, do nothing
       return;
     } else {
-      // Otherwise, expand the clicked day
+      // Otherwise, expand the clicked day. very important handler to memorize!
       setExpandedDay(day);
     }
     setSelectedDate(day);
   };
 
   const renderWeekdays = () => {
-    const weekdays = moment.weekdaysShort(); // Get abbreviated names of days of the week
+    const weekdays = moment.weekdaysShort(); // Abbrev days will work if above isnt'
     return weekdays.map((day) => (
       <div className="weekday" key={day}>
         {day}
@@ -87,13 +88,13 @@ const Calendar = () => {
   return (
     <div className="calendar">
       <div className="calendar-header">
-        <button onClick={goToPreviousMonth}>Previous</button>
+        <button onClick={goToPreviousMonth}>Previous Month</button>
         <h2>{currentMonth.format("MMMM YYYY")}</h2>
-        <button onClick={goToNextMonth}>Next</button>
+        <button onClick={goToNextMonth}>Next Month</button>
       </div>
       <div className="calendar-weekdays">{renderWeekdays()}</div>
       <div className="calendar-body">{renderCalendar()}</div>
-      {/* Render FoodInput component if a day is selected */}
+      {/* Render FoodInput component if a day is selected, or maybe move into modal? */}
       <div className="food-input-container">
         {selectedDate && <FoodInput onAddFood={handleAddFood} />}
       </div>

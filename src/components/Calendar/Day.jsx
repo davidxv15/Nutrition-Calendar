@@ -1,6 +1,10 @@
 import React from "react";
 import "./Day.css";
 import "./Calendar.css";
+import { IoMdCloseCircle } from "react-icons/io";
+import { BsTrash3 } from "react-icons/bs";
+
+
 
 const Day = ({
   date,
@@ -8,6 +12,7 @@ const Day = ({
   onClick,
   isExpanded,
   foodData,
+  totalCaloriesData,
   setFoodData,
   setExpandedDay,
   selectedDate,
@@ -44,31 +49,34 @@ const Day = ({
       onClick={handleDayClick}
     >
       {date.format("D")}
+      {/* ADD CAL TOTAL IN A DIV FOR STATIC CALENDAR VIEW */}
+      <div className="total-calories">{totalCalories}</div>
       {isExpanded && (
         <div className="day-expanded">
           <div className="selected-date">
-            {selectedDate && selectedDate.format("MM - DD - YYYY")}
+            {selectedDate && selectedDate.format("MM.DD, YYYY")}
           </div>
           <div className="day-content">
-            {/* DISPLAY: Date, Food Input, THEN IT'S CALORIES  and  total */}
             <div className="total-calories">Total: {totalCalories}</div>
 
             <button
               className="close-button"
               onClick={() => setExpandedDay(null)}
             >
-              Close
+              <IoMdCloseCircle />
+
             </button>
             <ol>
               {foodData.map((item) => (
                 <li key={item.uuid}>
                   {/* <span>{index + 1}. </span> */}
-                  {item.foodName} - {item.calories} Cal{" "}
+                  {item.foodName} - <span className="calorie-integer">{item.calories} Cal</span> {" "}
                   <button
                     className="x-button"
                     onClick={() => handleDeleteFood(item.uuid)}
                   >
-                    x
+                    <BsTrash3 />
+
                   </button>
                 </li>
               ))}

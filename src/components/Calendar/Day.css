@@ -1,6 +1,6 @@
 .day {
   font-size: 16px;
-  border: 1px solid #140c0c;
+  border: 3px solid #08d241;
   padding: 10px;
   text-align: center;
   cursor: pointer;
@@ -8,6 +8,12 @@
   color: #333; 
   background-color: aquamarine; 
 }
+/* .day {
+  border: 1px solid #0ad82d;
+  padding: 10px;
+  text-align: center;
+  font-size: 16px;
+} */
 
 
 .day-expanded {
@@ -15,7 +21,7 @@
   font-size: 12px;
   height: 195px;
   transform: translate(-50%, -50%) scale(1.4); 
-  color: rgb(19, 84, 31);
+  color: rgb(27, 13, 171);
   background-color: rgb(224, 193, 151);
   padding: 10px;
   border: 1px solid #ccc;
@@ -41,6 +47,8 @@
 .day-content li {
   list-style: none;
   margin-bottom: 10px;
+  text-align: left;
+  background-color: lightblue;
 }
 
 .day-content button {
@@ -52,14 +60,13 @@
   cursor: pointer;
 }
 
-.close-button {
+/* .close-button {
   background-color: white;
   color: peru;
+} */
 
-}
-
-.x-button {
+/* .x-button {
   text-align: center;
   color: teal;
   background-color: blueviolet;
-}
+} */
