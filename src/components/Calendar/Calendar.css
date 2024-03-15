@@ -122,4 +122,9 @@
 
 .total-calories {
   color: rgb(249, 59, 243);
+  font-size: 10px;
+}
+
+.underline {
+  text-decoration: underline;
 }
