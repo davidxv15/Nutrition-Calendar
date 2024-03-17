@@ -39,7 +39,6 @@
 }
 
 .day {
- 
   border: 1px solid #ccc;
   padding: 10px;
   text-align: center;
@@ -111,7 +110,7 @@
 .day-content .close-button {
   color: rgb(78, 69, 61);
   top: -2em;
-  right: .4em;
+  right: 0.4em;
   box-shadow: none;
 }
 
@@ -127,5 +126,5 @@
 
 .underline {
   text-decoration: underline;
-  color: red;
+  color: rgb(240, 13, 13);
 }
