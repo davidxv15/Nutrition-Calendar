@@ -1,25 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Rock+Salt&display=swap');
+
 .calendar {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 92%;
-  height: 25em;
-  border: 2px solid #ed6b6b;
+  padding: 8px;
+  padding-top: -10px;
+  width: 95%;
+  height: auto;
+  border: 2px solid #1e0d0d;
+  border-radius: 2px;
   margin: auto;
   background-color: cornflowerblue;
+  background-image: url('knife.avif');
+  background-size: cover;
+  transform: translateY(-30px);
 }
 
 .calendar-header {
+  font-family: "Rock Salt", sans-serif;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 60%;
   padding: 10px;
-  /* background-color: #f0f0f0; */
-  background-color: burlywood;
+  border: 1px solid black;
+  border-radius: 5px;
+  opacity: .8;
+  background-color:rgb(255, 255, 255);
 }
 
 .calendar-weekdays {
+  font-family: "Rock Salt", sans-serif;
   display: flex;
   width: 100%;
   padding: 5px;
@@ -40,8 +52,19 @@
 
 .day {
   border: 1px solid #ccc;
+  padding: 10x;
+  margin-top: 1px;
+  font-size: 16px;
+  border: 1px solid #08d241;
+  border-radius: 4px;
   padding: 10px;
   text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: #333; 
+  background-color: rgb(178, 241, 219); 
+  opacity: .8;
+  z-index: 0;
 }
 
 .day-expanded {
@@ -54,9 +77,11 @@
   width: 33%;
   transform: translate(-50%, -50%) scale(1.6);
   border: 1px solid #ccc;
+  border-radius: 10px;
   z-index: 3;
   opacity: 0.9;
   overflow: auto;
+  z-index: 999;
 }
 
 .day-content {
@@ -126,5 +151,12 @@
 
 .underline {
   text-decoration: underline;
-  color: rgb(94, 9, 9);
+  color: rgb(232, 62, 62);
+}
+
+.monthButton {
+  font-family: "Rock Salt", sans-serif;
+  background-color: rgb(178, 241, 219); 
+  border: 1px solid black;
+  border-radius: 4px;
 }
