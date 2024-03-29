@@ -50,7 +50,7 @@ const Day = ({
     >
       {date.format("D")}
       {/* ADD CAL TOTAL IN A DIV FOR STATIC CALENDAR VIEW */}
-      <div><div className="total-calories"><span className="underline">Total</span><br ></br> Cal: {totalCalories}</div></div>
+      <div><div className="total-calories-small"><span className="underline">Total</span><br ></br> Cal: {totalCalories}</div></div>
       {isExpanded && (
         <div className="day-expanded">
           <div className="selected-date">

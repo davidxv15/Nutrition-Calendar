@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Rock+Salt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Coming+Soon&family=Edu+NSW+ACT+Foundation:wght@400..700&family=Rock+Salt&display=swap');
 
 .calendar {
   display: flex;
@@ -55,9 +55,12 @@
   z-index: 0;
 }
 
-.total-calories {
-  color: rgb(249, 59, 243);
+.total-calories-small {
+  font-family: "Coming Soon";
+  font-weight: 800;
+  color: rgb(236, 34, 229);
   font-size: 10px;
+  z-index: 0;
 }
 
 .underline {
