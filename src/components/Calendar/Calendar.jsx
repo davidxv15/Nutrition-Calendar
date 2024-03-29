@@ -88,9 +88,9 @@ const Calendar = () => {
   return (
     <div className="calendar">
       <div className="calendar-header">
-        <button onClick={goToPreviousMonth} className="monthButton">Previous Month</button>
+        <button onClick={goToPreviousMonth} className="month-button">Previous Month</button>
         <h2 className="monthName">{currentMonth.format("MMMM YYYY")}</h2>
-        <button onClick={goToNextMonth} className="monthButton">Next Month</button>
+        <button onClick={goToNextMonth} className="month-button">Next Month</button>
       </div>
       <div className="calendar-weekdays">{renderWeekdays()}</div>
       <div className="calendar-body">{renderCalendar()}</div>
