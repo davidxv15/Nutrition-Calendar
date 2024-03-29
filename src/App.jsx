@@ -6,7 +6,7 @@ import Calendar from "./components/Calendar/Calendar";
 function App() {
   return (
     <div className="App">
-      <h1>Nutrition Calendar</h1>
+      <h1>Nutrition <span className="cursive">Calendar</span></h1>
       <Calendar />
     </div>
   );

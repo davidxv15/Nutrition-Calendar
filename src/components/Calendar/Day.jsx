@@ -54,7 +54,7 @@ const Day = ({
       {isExpanded && (
         <div className="day-expanded">
           <div className="selected-date">
-            {selectedDate && selectedDate.format("MM.DD, YYYY")}
+            {selectedDate && selectedDate.format("MMMM D, YYYY")}
           </div>
           <div className="day-content">
             <div className="total-calories">Total: {totalCalories}</div>
@@ -66,6 +66,7 @@ const Day = ({
               <IoMdCloseCircle />
 
             </button>
+            
             <ol>
               {foodData.map((item) => (
                 <li key={item.uuid}>
