@@ -8,31 +8,30 @@
   color: #333; 
   background-color: aquamarine; 
 }
-/* .day {
-  border: 1px solid #0ad82d;
-  padding: 10px;
-  text-align: center;
-  font-size: 16px;
-} */
-
 
 .day-expanded {
-  position: absolute;
+  position: fixed;
   font-size: 12px;
   height: 195px;
+  /* height: 33vh; */
+  width: 33%;
   transform: translate(-50%, -50%) scale(1.4); 
+  transform: translate(-50%, -50%) scale(1.6);
   color: rgb(27, 13, 171);
   background-color: rgb(224, 193, 151);
   padding: 10px;
   border: 1px solid #ccc;
   overflow: auto;
-  top: calc(100% + 5px);
+  /* top: calc(100% + 5px); */
+  top: 50%;
   left: 50%;
-  z-index: 3;
+  z-index: 999;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
   max-width: 90%; 
   max-height: 100%; 
+  opacity: 0.9;
   overflow-y: auto; 
+  cursor: default;
 }
 
 .day-content {
@@ -40,6 +39,11 @@
 }
 
 .day-content ul {
+  padding: 0;
+  margin: 0;
+}
+
+.day-content ol {
   padding: 0;
   margin: 0;
 }
@@ -53,20 +57,46 @@
 
 .day-content button {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  font-size: 0.7em;
+  top: auto;
+  right: auto;
+  height: 1em;
+  width: 1em;
+  margin-left: 1em;
+  padding-right: 0.2em;
+  text-align: justify;
+  vertical-align: middle;
+  border-radius: 50%;
   background-color: transparent;
   border: none;
   cursor: pointer;
+  box-shadow: 0 2px 4px darkslategray;
+  line-height: 0.1em;
 }
 
-/* .close-button {
-  background-color: white;
-  color: peru;
-} */
+.day-content .close-window {
+  color: rgb(78, 69, 61);
+  top: -2em;
+  right: 0.4em;
+  box-shadow: none;
+}
 
-/* .x-button {
+.day-content .total-calories {
+  color: red;
+  bottom: 1em;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.calorie-integer {
+  color: purple;
+  transform: translateX(3em);
+}
+
+.day-content .trash-button {
   text-align: center;
-  color: teal;
-  background-color: blueviolet;
-} */
+  color: rgb(0, 0, 0);
+  box-shadow: none;
+  right: 1em;
+  line-height: 2em;
+}

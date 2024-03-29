@@ -38,87 +38,6 @@
   border-top: 1px solid #ccc;
 }
 
-.day {
-  border: 1px solid #ccc;
-  padding: 10px;
-  text-align: center;
-}
-
-.day-expanded {
-  background-color: rgb(255, 255, 255);
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  font-size: 15px;
-  height: 33vh;
-  width: 33%;
-  transform: translate(-50%, -50%) scale(1.6);
-  border: 1px solid #ccc;
-  z-index: 3;
-  opacity: 0.9;
-  overflow: auto;
-}
-
-.day-content {
-  position: relative;
-}
-.day-content ol {
-  padding: 0;
-  margin: 0;
-}
-.day-content li {
-  list-style: none;
-  margin-bottom: 10px;
-}
-
-.calorie-integer {
-  color: purple;
-  transform: translateX(3em);
-}
-
-.day-content button {
-  font-size: 0.7em;
-  position: absolute;
-  top: auto;
-  right: auto;
-  height: 1em;
-  width: 1em;
-  margin-left: 1em;
-  padding-right: 0.2em;
-  text-align: justify;
-  vertical-align: middle;
-  border-radius: 50%;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  /* color: rgb(155, 30, 244);
-  background-color: rgb(253, 106, 0); */
-  box-shadow: 0 2px 4px darkslategray;
-  /* transform:translateX(0.2rem); */
-  /* transform:translateY(0.15rem); */
-  line-height: 0.1em;
-}
-
-.day-content .x-button {
-  text-align: center;
-  color: rgb(0, 0, 0);
-  box-shadow: none;
-  right: 1em;
-  line-height: 2em;
-}
-
-.day-content .close-button {
-  color: rgb(78, 69, 61);
-  top: -2em;
-  right: 0.4em;
-  box-shadow: none;
-}
-
-.day-content .total-calories {
-  color: red;
-  bottom: 1em;
-}
-
 .total-calories {
   color: rgb(249, 59, 243);
   font-size: 10px;
@@ -126,5 +45,5 @@
 
 .underline {
   text-decoration: underline;
-  color: rgb(94, 9, 9);
+  color: rgb(57, 164, 209);
 }

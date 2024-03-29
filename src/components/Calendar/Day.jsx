@@ -60,7 +60,7 @@ const Day = ({
             <div className="total-calories">Total: {totalCalories}</div>
 
             <button
-              className="close-button"
+              className="close-window"
               onClick={() => setExpandedDay(null)}
             >
               <IoMdCloseCircle />
@@ -72,7 +72,7 @@ const Day = ({
                   {/* <span>{index + 1}. </span> */}
                   {item.foodName} - <span className="calorie-integer">{item.calories} Cal</span> {" "}
                   <button
-                    className="x-button"
+                    className="trash-button"
                     onClick={() => handleDeleteFood(item.uuid)}
                   >
                     <BsTrash3 />
