@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import moment from "moment";
 import Day from "./Day";
 import FoodInput from "../FoodInput/FoodInput";
@@ -10,18 +10,48 @@ const Calendar = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [foodData, setFoodData] = useState({});
   const [expandedDay, setExpandedDay] = useState(null);
-  const [totalCaloriesData, setTotalCaloriesData] = useState({});
+  const [totalCalories, setTotalCalories] = useState(0);
+
+  useEffect(() => {
+    const storedFoodData = localStorage.getItem("foodData");
+    console.log("Retrieved foodData from local storage:", storedFoodData);
+
+    if (storedFoodData) {
+      try {
+        const parsedFoodData = JSON.parse(storedFoodData);
+        console.log("Parsed foodData from local storage:", parsedFoodData);
+        setFoodData(parsedFoodData);
+      } catch (error) {
+        console.error("Error parsing foodData from local storage:", error);
+      }
+    } else {
+      console.log("No foodData found in local storage.");
+    }
+  }, []);
+
+  useEffect(() => {
+    console.log("Storing foodData to local storage:", foodData);
+
+    try {
+      localStorage.setItem("foodData", JSON.stringify(foodData));
+    } catch (error) {
+      console.error("Error storing foodData to local storage:", error);
+    }
+  }, [foodData]);
 
   const handleAddFood = (food) => {
     if (selectedDate) {
       const dateKey = selectedDate.format("YYYY-MM-DD");
-      setFoodData((prevFoodData) => ({
-        ...prevFoodData,
-        [dateKey]: [
-          ...(prevFoodData[dateKey] || []),
-          { ...food, uuid: uuidv4() },
-        ],
-      }));
+      setFoodData((prevFoodData) => {
+        const updatedFoodData = {
+          ...prevFoodData,
+          [dateKey]: [
+            ...(prevFoodData[dateKey] || []),
+            { ...food, uuid: uuidv4() },
+          ],
+        };
+        return updatedFoodData;
+      });
     }
   };
 
@@ -88,9 +118,13 @@ const Calendar = () => {
   return (
     <div className="calendar">
       <div className="calendar-header">
-        <button onClick={goToPreviousMonth} className="month-button">Previous Month</button>
+        <button onClick={goToPreviousMonth} className="month-button">
+          Previous Month
+        </button>
         <h2 className="monthName">{currentMonth.format("MMMM YYYY")}</h2>
-        <button onClick={goToNextMonth} className="month-button">Next Month</button>
+        <button onClick={goToNextMonth} className="month-button">
+          Next Month
+        </button>
       </div>
       <div className="calendar-weekdays">{renderWeekdays()}</div>
       <div className="calendar-body">{renderCalendar()}</div>

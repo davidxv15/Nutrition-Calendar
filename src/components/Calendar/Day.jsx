@@ -4,8 +4,6 @@ import "./Calendar.css";
 import { IoMdCloseCircle } from "react-icons/io";
 import { BsTrash3 } from "react-icons/bs";
 
-
-
 const Day = ({
   date,
   currentMonth,
@@ -50,7 +48,12 @@ const Day = ({
     >
       {date.format("D")}
       {/* ADD CAL TOTAL IN A DIV FOR STATIC CALENDAR VIEW */}
-      <div><div className="total-calories-small"><span className="underline">Total</span><br ></br> Cal: {totalCalories}</div></div>
+      <div>
+        <div className="total-calories-small">
+          <span className="underline">Total</span>
+          <br></br> Cal: {totalCalories}
+        </div>
+      </div>
       {isExpanded && (
         <div className="day-expanded">
           <div className="selected-date">
@@ -64,20 +67,19 @@ const Day = ({
               onClick={() => setExpandedDay(null)}
             >
               <IoMdCloseCircle />
-
             </button>
-            
+
             <ol>
               {foodData.map((item) => (
                 <li key={item.uuid}>
                   {/* <span>{index + 1}. </span> */}
-                  {item.foodName} - <span className="calorie-integer">{item.calories} Cal</span> {" "}
+                  {item.foodName} -{" "}
+                  <span className="calorie-integer">{item.calories} Cal</span>{" "}
                   <button
                     className="trash-button"
                     onClick={() => handleDeleteFood(item.uuid)}
                   >
                     <BsTrash3 />
-
                   </button>
                 </li>
               ))}
