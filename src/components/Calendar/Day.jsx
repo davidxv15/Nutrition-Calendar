@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useMemo } from "react";
 import "./Day.css";
 import "./Calendar.css";
 import { IoMdCloseCircle } from "react-icons/io";
 import { BsTrash3 } from "react-icons/bs";
+
 
 const Day = ({
   date,
@@ -22,22 +23,22 @@ const Day = ({
   };
 
   const handleDeleteFood = (uuid) => {
-    setFoodData((prevFoodData) => {
-      const updatedFoodData = { ...prevFoodData };
-      const dateKeys = Object.keys(updatedFoodData);
-      dateKeys.forEach((dateKey) => {
-        updatedFoodData[dateKey] = updatedFoodData[dateKey].filter(
-          (item) => item.uuid !== uuid
-        );
-      });
-      return updatedFoodData;
-    });
+    const dateKey = date.format("YYYY-MM-DD"); // Compute dateKey from DATE
+    const updatedEntries = foodData.filter(entry => entry.uuid !== uuid);
+    const updatedFoodData = { ...foodData, [dateKey]: updatedEntries };
+  
+    setFoodData(updatedFoodData);
+    localStorage.setItem("foodData", JSON.stringify(updatedFoodData));
   };
+  
 
-  const totalCalories = foodData.reduce(
-    (total, item) => total + parseInt(item.calories, 10),
-    0
-  );
+  const totalCalories = useMemo(() => {
+    return foodData.reduce((total, item) => total + parseInt(item.calories, 10), 0);
+  }, [foodData]);
+  
+
+  console.log(date.format("YYYY-MM-DD"), foodData); // Check the received foodData
+
 
   return (
     <div
@@ -50,8 +51,9 @@ const Day = ({
       {/* ADD CAL TOTAL IN A DIV FOR STATIC CALENDAR VIEW */}
       <div>
         <div className="total-calories-small">
-          <span className="underline">Total</span>
+          <span className="underline"> Daily Total</span>
           <br></br> Cal: {totalCalories}
+          
         </div>
       </div>
       {isExpanded && (

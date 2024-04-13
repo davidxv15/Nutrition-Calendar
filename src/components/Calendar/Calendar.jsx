@@ -18,41 +18,39 @@ const Calendar = () => {
 
     if (storedFoodData) {
       try {
-        const parsedFoodData = JSON.parse(storedFoodData);
-        console.log("Parsed foodData from local storage:", parsedFoodData);
-        setFoodData(parsedFoodData);
+        const parsedData = JSON.parse(storedFoodData);
+        setFoodData(parsedData);
+        console.log("Loaded foodData:", parsedData); // Debugging line
       } catch (error) {
         console.error("Error parsing foodData from local storage:", error);
       }
     } else {
-      console.log("No foodData found in local storage.");
+      setFoodData({}); // Initialize as an empty object if no data is found
     }
+  
+
   }, []);
+  
 
   useEffect(() => {
-    console.log("Storing foodData to local storage:", foodData);
-
     try {
       localStorage.setItem("foodData", JSON.stringify(foodData));
+      console.log("Storing foodData to local storage:", foodData);
     } catch (error) {
       console.error("Error storing foodData to local storage:", error);
     }
   }, [foodData]);
 
   const handleAddFood = (food) => {
-    if (selectedDate) {
-      const dateKey = selectedDate.format("YYYY-MM-DD");
-      setFoodData((prevFoodData) => {
-        const updatedFoodData = {
-          ...prevFoodData,
-          [dateKey]: [
-            ...(prevFoodData[dateKey] || []),
-            { ...food, uuid: uuidv4() },
-          ],
-        };
-        return updatedFoodData;
-      });
-    }
+    const dateKey = selectedDate.format("YYYY-MM-DD"); // date format (console)
+    const entry = { ...food, uuid: uuidv4() }; 
+    const entriesForDate = foodData[dateKey] || [];
+    const updatedEntries = [...entriesForDate, entry];
+  
+    const updatedFoodData = { ...foodData, [dateKey]: updatedEntries };
+  
+    setFoodData(updatedFoodData);
+    localStorage.setItem("foodData", JSON.stringify(updatedFoodData));
   };
 
   const renderCalendar = () => {
@@ -77,6 +75,7 @@ const Calendar = () => {
           setFoodData={setFoodData}
           setExpandedDay={setExpandedDay}
           selectedDate={selectedDate}
+          dateKey={currentDate.format("YYYY-MM-DD")} // Pass dateKey here
         />
       );
       currentDate.add(1, "day");

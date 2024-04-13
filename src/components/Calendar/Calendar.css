@@ -58,14 +58,14 @@
 .total-calories-small {
   font-family: "Coming Soon";
   font-weight: 800;
-  color: rgb(236, 34, 229);
+  color: rgb(57, 164, 209);
   font-size: 10px;
   z-index: 0;
 }
 
 .underline {
   text-decoration: underline;
-  color: rgb(57, 164, 209);
+  color: rgb(236, 34, 229);
 }
 
 .month-button {
